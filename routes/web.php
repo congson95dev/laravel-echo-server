@@ -1,6 +1,9 @@
 <?php
 
+use App\Events\ChatEvent;
+use App\Events\PlaygroundEvent;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// playground will be the publisher
+Route::get('/playground', function () {
+    event(new PlaygroundEvent);
+
+    return null;
+});
+
+// ws will be the receiver
+Route::get('/ws', function () {
+    return view('websocket');
+});
+
+Route::post('/chat-message', function (Request $request) {
+    event(new ChatEvent($request->message));
+
+    return null;
 });
