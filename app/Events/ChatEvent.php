@@ -38,6 +38,9 @@ class ChatEvent implements ShouldBroadcast
         
         // we will set it as public channel instead
         return new Channel('public.chat.1');
+
+        // set private channel
+        // return new PrivateChannel('private.chat.1');
     }
 
     // rename the event name in terminal and from /laravel-sockets
@@ -50,6 +53,10 @@ class ChatEvent implements ShouldBroadcast
     // set data to the event
     public function broadcastWith()
     {
+        // set 5 seconds before broadcast the data
+        // the purpose of this is for make sure if we f5 the page, it will continues to handle the code and broadcast the event
+        // also, i've tried to broadcast 2 time, and it's still work, it's not blocking
+        sleep(5);
         return ['message' => $this->message];
     }
 }
