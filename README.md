@@ -37,4 +37,5 @@ set the event to `implements ShouldBroadcast`
 https://www.youtube.com/watch?v=rzZoswkfi90&list=PLSfH3ojgWsQosqpQUc28yP9jJZXrEylJY&index=51
 
 `npm i laravel-echo pusher-js@7.6`
+
 `npm run hot`
