@@ -37,7 +37,7 @@ class ChatEvent implements ShouldBroadcast
         // return new PrivateChannel('channel-name');
 
         // we will set it as public channel instead
-        return new PrivateChannel('public.chat.1');
+        return new Channel('public.chat.1');
 
         // set private channel
         // return new PrivateChannel('private.chat.1');
