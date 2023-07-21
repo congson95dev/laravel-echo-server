@@ -31,7 +31,7 @@ Route::get('/ws', function () {
 });
 
 Route::post('/chat-message', function (Request $request) {
-    event(new ChatEvent($request->message));
+    event(new ChatEvent($request->message, auth()->user()));
 
     return null;
 });

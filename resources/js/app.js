@@ -20,7 +20,11 @@ form.addEventListener('submit', function(event){
     })
 });
 
-const event_channel = Echo.channel('public.chat.1');
+// with this, we should use js to get current user id, and pass it in here
+// ex: private.chat.{{user_id}}
+// right now, we use private.chat.1, so only user with id = 1 can receive the message return from chat event
+// user with id = 2 won't receive any message
+const event_channel = Echo.private('private.chat.1');
 
 // listen to chat-message event
 event_channel.subscribed(() => {
